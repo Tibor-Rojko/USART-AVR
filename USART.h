@@ -8,9 +8,9 @@
 #ifndef USART_H_
 #define USART_H_
 
-void initUSART(void);
-void printString(char myString[]);
-void readString(char myString[], uint8_t maxLength);
-void printEcho(char msg[]);
+void initUSART(void);                                     //Initialize USART module
+void printString(char myString[]);                        //Send string to serial
+void readString(char myString[], uint8_t maxLength);      //Read string from serial
+void printEcho(char msg[]);                               //temp
 
 #endif /* USART_H_ */
