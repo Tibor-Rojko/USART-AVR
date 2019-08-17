@@ -24,7 +24,7 @@ int main(void)
 	while (1) 
     {
 		//Basicly, do nothing...
-		PORTB ^= (1 << PINB5);	//Toggle Port B Pin 5, Arduino pin13, with Built-In LED
+		PORTB ^= (1 << PINB5);		//Toggle Port B Pin 5, Arduino pin13, with Built-In LED
 		_delay_ms(1000);		//delay 1 sec
     }
 }
