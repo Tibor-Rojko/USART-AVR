@@ -10,14 +10,14 @@
 #include <util/setbaud.h>
 #include "USART.h"
 
-void initUSART(void)										//requires BAUD 
+void initUSART(void)							//requires BAUD 
 {					                                
-	UBRR0H = UBRRH_VALUE;									// defined in setbaud.h */
+	UBRR0H = UBRRH_VALUE;						// defined in setbaud.h */
 	UBRR0L = UBRRL_VALUE;
 	
 	//Enable USART transmitter/receiver & RX interrupt 
 	UCSR0B = (1 << RXCIE0) |(1 << TXEN0) | (1 << RXEN0);
-	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);					//8 data bits, 1 stop bit
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);				//8 data bits, 1 stop bit
 }
 
 static void transmitByte(unsigned char data)
@@ -53,19 +53,19 @@ void readString(char myString[], uint8_t maxLength)
 	i = 0;
 	while (i < (maxLength - 1)) {                   //prevent over-runs
 		response = receiveByte();
-		transmitByte(response);                     //echoing
-		if (response == '\r') {                     //enter (\r) marks the end
+		transmitByte(response);                 //echoing
+		if (response == '\r') {                 //enter (\r) marks the end
 			break;
 		}
 		else {
-			myString[i] = response;                 //add in a letter
+			myString[i] = response;         //add in a letter
 			i++;
 		}
 	}
-	myString[i] = 0;								//terminal NULL character
+	myString[i] = 0;				//terminal NULL character
 }
 
-//temporary routine for test
+//temporary routine for test (feedback)
 void printEcho(char msg[])
 {
 	printString("OK! >>> msg: ");
